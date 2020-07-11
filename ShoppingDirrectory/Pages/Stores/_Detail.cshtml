@@ -1,0 +1,28 @@
+﻿@using ShoppingDirrectory.Models
+@model Store
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>@Model.Name</h3>
+                <span>@Model.Address</span>,&nbsp;
+                <span>@Model.City</span>
+            </div>
+            <div class="col-md-3">
+                <a asp-page="./List/" asp-route-categoryId="@Model.CategoryId" class="badge badge-secondary float-right">@Model.CategoryName</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a asp-page="./Edit" class="btn btn-lg" asp-route-storeId="@Model.Id">
+            <i class="fa fa-edit"></i>
+            Edit
+        </a>
+        <a asp-page="./Delete" class="btn btn-lg" asp-route-storeId="@Model.Id">
+            <i class="fa fa-trash"></i>
+            Delete
+        </a>
+    </div>
+</div>
+<br />

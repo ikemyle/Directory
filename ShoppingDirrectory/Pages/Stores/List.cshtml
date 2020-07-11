@@ -1,0 +1,38 @@
+﻿@page "{categoryId:int?}"
+@model ShoppingDirrectory.Pages.Stores.ListModel
+@{
+    ViewData["Title"] = "Stores";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.ListTitle</h1>
+<form method="get">
+    <div class="row">
+        <div class="col-md-9">
+            <a asp-page="./List" asp-route-categoryId="" class="badge badge-primary">All Categories</a>
+            @foreach (var ctg in Model.Categories)
+            {
+                <a asp-page="./List/" asp-route-categoryId="@ctg.Id" class="badge badge-info">@ctg.Name</a>
+            }
+            @*<div class="form-group">
+                <div class="input-group">
+                    @Html.DropDownListFor(model => model.SelectedCategory, new SelectList(Model.Categories, "Id", "Name"),"All Categories")
+                    <span>
+                        <button class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>*@
+        </div>
+        <div class="col-md-3">
+            <a asp-page="./Edit" class="btn btn-primary float-right">Add New</a>
+        </div>
+    </div>
+</form>
+<hr />
+@foreach (var store in Model.Stores)
+{
+    <partial name="_Detail" model="store" />
+}
+

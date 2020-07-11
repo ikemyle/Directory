@@ -1,0 +1,15 @@
+﻿@page "{storeId:int}"
+@model ShoppingDirrectory.Pages.Stores.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+<div class="alert alert-danger">
+    Are you sure you want to delete @Model.MyStore.Name?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-primary">Yes</button>
+    <a asp-page="./List" class="btn btn-warning">Cancel</a>
+</form>

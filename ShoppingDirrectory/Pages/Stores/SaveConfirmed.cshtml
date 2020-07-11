@@ -1,0 +1,11 @@
+﻿@page "{storeid:int?}"
+@model ShoppingDirrectory.Pages.Stores.SaveConfirmedModel
+@{
+    ViewData["Title"] = "SaveConfirmed";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Store has been saved @Model.MyStore.Name</h1>
+
+<a asp-page="./List">Back to Stores</a>
+
